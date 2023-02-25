@@ -10,8 +10,20 @@ void Circular_Rigid_Body::set_initial_force_ext(void)
 	// Gravitational
 	force_ext.y = mass * -9.8;
 	force_ext.x = 0.0;
+}
 
-	// Then apply spring force if a spring is attached using the spring class method
+// Copy data from one Circular Rigid Body to another
+void Circular_Rigid_Body::copyRigidBody(Circular_Rigid_Body *o)
+{
+	// Position and velocity
+	pos = {o->pos.x, o->pos.y};
+	linear_vel = {o->linear_vel.x, o->linear_vel.y};
+
+	// External force
+	force_ext = {o->force_ext.x, o->force_ext.y};
+
+	// Mass
+	mass = o->mass;
 }
 
 

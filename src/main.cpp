@@ -48,15 +48,9 @@ int main(void) {
 	// Fill in the rest of the parameters for the masses
 	for (int i = 0; i < num_masses; i++)
 	{
-		masses[i].angle = 0.0;
 		masses[i].linear_vel = {0.0, 0.0};
-		masses[i].angular_vel = 0.0;
 		masses[i].force_ext = {0.0, 0.0};
-		masses[i].torque = 0.0;
 		masses[i].mass = 1.0;
-		masses[i].radius = 0.1;
-		masses[i].determine_moi();
-		masses[i].color = 0x0000FF;
 	}
 	// Constraints lists
 	int num_bar1s = 1;

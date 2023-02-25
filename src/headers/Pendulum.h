@@ -49,6 +49,9 @@ Circular_Rigid_Body *initializeMassPositions(double *angles, int numAngles, doub
 // Return a double array of all angles for a pendulum
 double *findPendulumAngles(Pendulum *p);
 
+// Copies all data from one pendulum into another
+void copyPendulum(Pendulum *o, Pendulum *i);
+
 // Free a pendulum struct from memory
 void freePendulum(Pendulum *p);
 

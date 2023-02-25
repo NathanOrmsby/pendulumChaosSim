@@ -9,7 +9,8 @@
 #define HEADERS_SINGLEPENDULUMCHAOS_H_
 
 
-void singlePendulumChaos()
+// Simulates a single double pendulum with a circle of perturbations in the angle space
+void singleDoublePendulumChaos(double *angles, double *barLens, double *massAmounts, double dt, int totalTime, int numPoints, double radius);
 
 
 #endif /* HEADERS_SINGLEPENDULUMCHAOS_H_ */

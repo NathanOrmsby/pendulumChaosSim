@@ -63,6 +63,14 @@ void Rigid_Bar_1::determine_initial_point(Circular_Rigid_Body *mass_list)
 	initial_point = mass_list[attached_mass].pos;
 }
 
+// Copy data from another Rigid_Bar_1 to self
+void Rigid_Bar_1::copyRigidBar1(Rigid_Bar_1 *o)
+{
+	pivot = {o->pivot.x, o->pivot.y};
+	initial_point = {o->initial_point.x, o->initial_point.y};
+	attached_mass = o->attached_mass;
+}
+
 // Rigid bar 2 functions
 // Attaches to two moving mass objects
 
@@ -160,5 +168,17 @@ void Rigid_Bar_2::determine_initial_points(Circular_Rigid_Body *mass_list)
 {
 	initial_point0 = mass_list[attached_masses[0]].pos;
 	initial_point1 = mass_list[attached_masses[1]].pos;
+}
+
+// Copy data to self from other Rigid_Bar_2
+void Rigid_Bar_2::copyRigidBar2(Rigid_Bar_2 *o)
+{
+	initial_point0 = {o->initial_point0.x, o->initial_point0.y};
+	initial_point1 = {o->initial_point1.x, o->initial_point1.y};
+
+	for (int i = 0; i < 2; ++i)
+	{
+		attached_masses[i] = o->attached_masses[i];
+	}
 }
 

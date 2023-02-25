@@ -144,6 +144,37 @@ double *findPendulumAngles(Pendulum *p)
 	return angles;
 }
 
+// Copies all pendulum data from i to o
+void copyPendulum(Pendulum *o, Pendulum *i)
+{
+	o->numMasses = i->numMasses;
+	o->numBar2s = i->numBar2s;
+	o->numAngles = i->numAngles;
+
+	// Copy mass objects
+
+	// Allocate space
+	o->masses = (Circular_Rigid_Body *)malloc(o->numMasses * sizeof(Circular_Rigid_Body));
+
+	// Copy data
+	for (int j = 0; j < o->numMasses; ++j)
+	{
+		o->masses[j].copyRigidBody(&i->masses[j]);
+	}
+
+	// Copy rigid bars
+	o->bar1.copyRigidBar1(&i->bar1);
+
+	// Allocate space for bar2s
+	o->bar2s = (Rigid_Bar_2 *)malloc(o->numBar2s * sizeof(Rigid_Bar_2));
+
+	// Copy data
+	for (int j = 0; j < o->numBar2s; ++j)
+	{
+		o->bar2s[j].copyRigidBar2(&i->bar2s[j]);
+	}
+}
+
 // Free a pendulum struct from memory
 void freePendulum(Pendulum *p)
 {

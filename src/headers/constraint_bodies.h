@@ -10,6 +10,8 @@
 #include "vectors.h"
 #include "rigid_bodies.h"
 
+class Circular_Rigid_Body;
+
 // The rigid bar classes. NEVER CHANGES LENGTH BETWEEN POINTS
 
 // This rigid bar attaches at a pivot at point0, and a mass at point1
@@ -33,7 +35,11 @@ class Rigid_Bar_1
 	double jacobian_derivative_entry_x(Circular_Rigid_Body *mass_list);
 	double jacobian_derivative_entry_y(Circular_Rigid_Body *mass_list);
 
+	// Determine the initial point
 	void determine_initial_point(Circular_Rigid_Body *mass_list);
+
+	// Copy data from another Rigid_Bar_1 to self
+	void copyRigidBar1(Rigid_Bar_1 *o);
 
 
 };
@@ -64,7 +70,11 @@ class Rigid_Bar_2
 	double jacobian_derivative_entry_x2(Circular_Rigid_Body *mass_list);
 	double jacobian_derivative_entry_y2(Circular_Rigid_Body *mass_list);
 
+	// Determine initial points from masses
 	void determine_initial_points(Circular_Rigid_Body *mass_list);
+
+	// Copy data to self from other Rigid_Bar_2
+	void copyRigidBar2(Rigid_Bar_2 *o);
 };
 
 

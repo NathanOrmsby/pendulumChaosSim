@@ -24,6 +24,9 @@ class Circular_Rigid_Body
 
 	// Find initial external force
 	void set_initial_force_ext(void);
+
+	// Copy data from to self from other Circular Rigid Body
+	void copyRigidBody(Circular_Rigid_Body *o);
 };
 
 
