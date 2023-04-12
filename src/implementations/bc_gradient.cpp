@@ -14,27 +14,20 @@ void biconjugate_gradient(State_Getter *state, double *b, double *x, int itol, d
 	// This algorithm MINIMIZES Gradient F = Ax - b to converge within given tolerance. Default 0.001
 	// Generates a succession of search directions and improved minimizers xk.
 	// After N iterations of an NxN matrix you arrive at the minimizer over the entire space, aka the solution
-	// Double numbers for stuff
+
+	// Numbers used in algorithm
 	double ak,akden,bk,bkden,bknum,b_norm,dx_norm,x_norm,zm1_norm,z_norm;
 
 	// Set num constraint so i dont have to write it everywhere
 	int m = state->num_constraints;
 
 	// All the vectors
-	double p[m];
-	double p_bar[m];
-	double r[m];
-	double r_bar[m];
-	double z[m];
-	double z_bar[m];
-
-	// zero all the vectors
-	zero_vector(p, m);
-	zero_vector(p_bar, m);
-	zero_vector(r, m);
-	zero_vector(r_bar, m);
-	zero_vector(z, m);
-	zero_vector(z_bar, m);
+	double *p = new double[m]();
+	double *p_bar = new double[m]();
+	double *r = new double[m]();
+	double *r_bar = new double[m]();
+	double *z = new double[m]();
+	double *z_bar = new double[m]();
 
 
 	// Start iteration count
@@ -42,6 +35,7 @@ void biconjugate_gradient(State_Getter *state, double *b, double *x, int itol, d
 
 	// Sets A * x = r
 	A_times_x(state, x, r);
+
 
 	// residual vector "r" is calculated by subtracting r from b.
 	for (int i = 0; i < m; i++)
@@ -53,8 +47,7 @@ void biconjugate_gradient(State_Getter *state, double *b, double *x, int itol, d
 	A_times_x(state, r, r_bar);
 
 	// Plug in an identity matrix for preconditioned M, we don't calculate A
-	double identity[m];
-	ones_vector(identity, m);
+	double *identity = new double[m]{1};
 
 	// Different itol protocols
 	if (itol == 1)
@@ -83,6 +76,14 @@ void biconjugate_gradient(State_Getter *state, double *b, double *x, int itol, d
 	else
 	{
 		std::cout << "Itol protocols only 1-4, exiting..." << std::endl;
+		// Free all stuff
+		delete[] p;
+		delete[] p_bar;
+		delete[] r;
+		delete[] r_bar;
+		delete[] z;
+		delete[] z_bar;
+		delete[] identity;
 		exit(1);
 	}
 
@@ -198,6 +199,15 @@ void biconjugate_gradient(State_Getter *state, double *b, double *x, int itol, d
 			break;
 		}
 	}
+
+	// Free all stuff
+	delete[] p;
+	delete[] p_bar;
+	delete[] r;
+	delete[] r_bar;
+	delete[] z;
+	delete[] z_bar;
+	delete[] identity;
 }
 
 

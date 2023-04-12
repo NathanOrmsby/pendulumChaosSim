@@ -5,7 +5,7 @@
 
 #include "../headers/total_energy.h"
 
-double total_energy(Circular_Rigid_Body *mass_list, int num_bodies, int loopCount)
+double total_energy(Circular_Rigid_Body *mass_list, int num_bodies)
 {
 	double tot_kinetic = 0.0;
 	double tot_gp = 0.0;

@@ -7,6 +7,14 @@
 // Rigid bar 1 methods
 // This rigid bar attaches at a pivot at point0, and a mass at point1
 
+// Constructors
+Rigid_Bar_1::Rigid_Bar_1() : pivot({0, 0}), attached_mass(0) {
+}
+
+Rigid_Bar_1::Rigid_Bar_1(Vector &pivot, int attached_mass)
+    : pivot(pivot), attached_mass(attached_mass) {
+}
+
 double Rigid_Bar_1::constraint(Circular_Rigid_Body *mass_list)
 {
 	// Given a state vector q, return a scalar value of this constraint function.
@@ -73,6 +81,15 @@ void Rigid_Bar_1::copyRigidBar1(Rigid_Bar_1 *o)
 
 // Rigid bar 2 functions
 // Attaches to two moving mass objects
+
+// Constructor
+Rigid_Bar_2::Rigid_Bar_2() : attached_masses{0, 1} {
+}
+
+Rigid_Bar_2::Rigid_Bar_2(int attached_mass_1, int attached_mass_2) {
+    attached_masses[0] = attached_mass_1;
+    attached_masses[1] = attached_mass_2;
+}
 
 double Rigid_Bar_2::constraint(Circular_Rigid_Body *mass_list)
 {

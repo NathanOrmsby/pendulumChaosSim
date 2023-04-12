@@ -37,7 +37,7 @@ void singlePendulumSim(int numMasses, Circular_Rigid_Body *masses, int numBar1s,
 	// Data array for storage of position data: Store the pivot position, and mass positions
 
 	// Collect data every ITERATIONS step
-	int ITERATIONS = 1000;
+	int ITERATIONS = 17;
 	int dataLen = ((totalSteps + ITERATIONS - 1) / ITERATIONS) + 1;
 
 	// Data for pivot point
@@ -110,7 +110,7 @@ void singlePendulumSim(int numMasses, Circular_Rigid_Body *masses, int numBar1s,
 
 		// Numerical integrator
 		// rk4 method
-		rk4(&current_state, masses, bar1s, numBar1s, bar2s, numBar2s, spring2s, dt);
+		rk4(masses, numMasses, bar1s, numBar1s, bar2s, numBar2s, dt);
 
 		// Increment the loop count
 		loopCount++;

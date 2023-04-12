@@ -23,6 +23,10 @@ class Rigid_Bar_1
 	Vector initial_point;
 	int attached_mass;
 
+	// Constructors
+	Rigid_Bar_1();
+	Rigid_Bar_1(Vector &pivot, int attached_mass);
+
 	// Constraint equation of rigid rod
 	double constraint(Circular_Rigid_Body *mass_list);
 	double constraint_time_derivative(Circular_Rigid_Body *mass_list);
@@ -40,8 +44,6 @@ class Rigid_Bar_1
 
 	// Copy data from another Rigid_Bar_1 to self
 	void copyRigidBar1(Rigid_Bar_1 *o);
-
-
 };
 
 // Attaches to two moving mass objects
@@ -53,6 +55,10 @@ class Rigid_Bar_2
 	Vector initial_point1;
 	// Tells which masses the rigid rod is connected to
 	int attached_masses[2];
+
+	// Constructors
+	Rigid_Bar_2();
+	Rigid_Bar_2(int attached_mass_1, int attached_mass_2);
 
 	// Constraint equation of rigid rod connecting two moving masses
 	double constraint(Circular_Rigid_Body *mass_list);

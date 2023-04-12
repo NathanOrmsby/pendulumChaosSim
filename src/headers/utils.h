@@ -13,6 +13,8 @@ class Matrix_Block;
 
 int minimum(int a, int b);
 int maximum(int a, int b);
+double degreesToRadians(double degrees);
+double radiansToDegrees(double radians);
 void free_matrix_block_list(Matrix_Block *block_list, int num_blocks);
 void print_matrix_block_list(Matrix_Block *block_list, int num_blocks);
 

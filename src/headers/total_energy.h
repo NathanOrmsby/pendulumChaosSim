@@ -10,7 +10,7 @@
 
 #include "rigid_bodies.h"
 
-double total_energy(Circular_Rigid_Body *mass_list, int num_bodies, int loopCount);
+double total_energy(Circular_Rigid_Body *mass_list, int num_bodies);
 
 
 #endif /* TOTAL_ENERGY_H_ */

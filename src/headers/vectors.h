@@ -16,6 +16,10 @@ class Vector
 	// Coordinates for x and y directions
 	double x;
 	double y;
+
+	// Constructors
+	Vector() : x(0), y(0) {}
+	Vector(double x, double y) : x(x), y(y) {}
 };
 
 class Screen_Vector

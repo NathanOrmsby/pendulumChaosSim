@@ -12,6 +12,11 @@ class Circular_Rigid_Body
 {
 	public:
 
+	// Constructors
+	Circular_Rigid_Body();
+	Circular_Rigid_Body(Vector &pos);
+	Circular_Rigid_Body(double mass, Vector &pos, Vector &linear_vel, Vector &force_ext);
+
 	// Position, Velocity
 	Vector pos;
 	Vector linear_vel;

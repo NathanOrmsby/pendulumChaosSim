@@ -23,7 +23,7 @@ void writeCircleToFile(int numPoints, double radius)
 
 	uniformCircle(numPoints, data, radius);
 
-	std::string fname = "unitCircle.csv";
+	std::string fname = "D:\\pendulumSimulator\\unitCircle.csv";
 	toFile(fname, data, numPoints);
 
 	// Free data
